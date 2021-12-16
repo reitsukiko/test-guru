@@ -1,4 +1,4 @@
-Entities for the project 'Test-guru':
+:)Entities for the project 'Test-guru':
 1. Role - administrator/user;
 2. Test;
 3. Question;
