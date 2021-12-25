@@ -1,7 +1,7 @@
 class Test < ApplicationRecord
   belongs_to :category
 
-  belongs_to :author, inverse_of: 'author_tests'
+  belongs_to :author, inverse_of: 'сreated_tests'
 
   has_many :question, dependent: :destroy
 
