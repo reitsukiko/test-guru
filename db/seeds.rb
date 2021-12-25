@@ -11,36 +11,36 @@ users = User.create!([
 ])
 
 tests = Test.create!([
-  { title: ‘HorrorMovie’, level:1, category_id: categories.first.id, author_id: users.first.id },
-  { title: ‘DetectiveMovie’, level:2, category_id: categories.first.id, author_id: users.first.id },
-  { title: ‘FantasticBook’, level:1, category_id: categories.second.id, author_id: users.first.id },
-  { title: ‘FantasyBook’, level:2, category_id: categories.second.id, author_id: users.first.id },
-  { title: ‘ActionGame’, level:1, category_id: categories.third.id, author_id: users.first.id },
-  { title: ‘StrategyGame’, level:2, category_id: categories.third.id, author_id: users.first.id },
+  { title: ‘HorrorMovie’, level:1, category: categories.first, author: users.first },
+  { title: ‘DetectiveMovie’, level:2, category: categories.first, author: users.first },
+  { title: ‘FantasticBook’, level:1, category: categories.second, author: users.first },
+  { title: ‘FantasyBook’, level:2, category: categories.second, author: users.first },
+  { title: ‘ActionGame’, level:1, category: categories.third, author: users.first },
+  { title: ‘StrategyGame’, level:2, category: categories.third, author: users.first },
 ])
 
 questions = Question.create!([
-  { body: ‘questions1’, test_id: tests[0].id },
-  { body: ‘questions2’, test_id: tests[1].id },
-  { body: ‘questions3’, test_id: tests[2].id },
-  { body: ‘questions4’, test_id: tests[3].id },
-  { body: ‘questions5’, test_id: tests[4].id },
-  { body: ‘questions6’, test_id: tests[5].id },
+  { body: ‘questions1’, test: tests[0] },
+  { body: ‘questions2’, test: tests[1] },
+  { body: ‘questions3’, test: tests[2] },
+  { body: ‘questions4’, test: tests[3] },
+  { body: ‘questions5’, test: tests[4] },
+  { body: ‘questions6’, test: tests[5] },
 ])
 
 answers = Answer.create!([
-  { body: ‘answer1’, correct: true, question_id: questions[0].id },
-  { body: ‘answer1’, correct: false, question_id: questions[0].id },
-  { body: ‘answer2’, correct: true, question_id: questions[1].id },
-  { body: ‘answer2’, correct: false, question_id: questions[1].id },
-  { body: ‘answer3’, correct: true, question_id: questions[2].id },
-  { body: ‘answer3’, correct: false, question_id: questions[2].id },
-  { body: ‘answer4’, correct: true, question_id: questions[3].id },
-  { body: ‘answer4’, correct: false, question_id: questions[3].id },
-  { body: ‘answer5’, correct: true, question_id: questions[4].id },
-  { body: ‘answer5’, correct: false, question_id: questions[4].id },
-  { body: ‘answer6’, correct: true, question_id: questions[5].id },
-  { body: ‘answer6’, correct: false, question_id: questions[5].id },
+  { body: ‘answer1’, correct: true, question: questions[0] },
+  { body: ‘answer1’, correct: false, question: questions[0] },
+  { body: ‘answer2’, correct: true, question: questions[1] },
+  { body: ‘answer2’, correct: false, question: questions[1] },
+  { body: ‘answer3’, correct: true, question: questions[2] },
+  { body: ‘answer3’, correct: false, question: questions[2] },
+  { body: ‘answer4’, correct: true, question: questions[3] },
+  { body: ‘answer4’, correct: false, question: questions[3] },
+  { body: ‘answer5’, correct: true, question: questions[4] },
+  { body: ‘answer5’, correct: false, question: questions[4] },
+  { body: ‘answer6’, correct: true, question: questions[5] },
+  { body: ‘answer6’, correct: false, question: questions[5] },
 ])
 
 

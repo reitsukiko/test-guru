@@ -1,6 +1,11 @@
 class User < ApplicationRecord
+  has_many :passings, dependent: :destroy
+
+  has_many :tests, through: :passings
+
+  has_many :сreated_tests, class_name: 'Test', foreign_key: :author_id
+
   def find_tests_by_level(level)
-    Test.joins('JOIN passings ON passings.tests_id = tests.id')
-        .where(passings: {user_id: id}, tests: {level: level})
+    tests.where(level: level)
   end
 end
