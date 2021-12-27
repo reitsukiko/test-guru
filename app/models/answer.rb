@@ -9,6 +9,6 @@ class Answer < ApplicationRecord
   private
 
   def count_of_answers
-    errors.add(:base, 'Limit violated, min 1 answer, max 4 answer') if question.answers.count >= 4
+    errors.add(:base, 'Limit violated, min 1 answer, max 4 answer') if question.answers.count > 4
   end
 end
