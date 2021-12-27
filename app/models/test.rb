@@ -9,8 +9,9 @@ class Test < ApplicationRecord
 
   has_many :users, through: :passings
 
-  validates :title, presence: true, uniqueness: true
-  validates :level, numericality: { only_integer: true }, uniqueness: true
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true, greater_than_or_equel_to: 0 }
+  validates :title, uniqueness: { scope: :level }
 
   scope :easy, -> { where(level: 0..1) }
   scope :normal, -> { where(level: 2..4) }
@@ -19,10 +20,9 @@ class Test < ApplicationRecord
   scope :tests_by_category, -> (category) {
     joins(:category)
       .where(categories: { title: category })
-      .order(title: :desc)
   }
 
   def self.find_tests_by_category(category)
-    tests_by_category(category).pluck('title')
+    tests_by_category(category).order(title: :desc).pluck(:title)
   end
 end
