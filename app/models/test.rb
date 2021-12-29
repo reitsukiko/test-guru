@@ -9,10 +9,19 @@ class Test < ApplicationRecord
 
   has_many :users, through: :passings
 
-  def self.tests_by_category(category)
+  validates :title, presence: true, uniqueness: { scope: :level }
+  validates :level, numericality: { only_integer: true, greater_than_or_equel_to: 0 }
+
+  scope :easy, -> { where(level: 0..1) }
+  scope :normal, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+
+  scope :tests_by_category, -> (category) {
     joins(:category)
       .where(categories: { title: category })
-      .order(title: :desc)
-      .pluck(:title)
+  }
+
+  def self.find_tests_by_category(category)
+    tests_by_category(category).order(title: :desc).pluck(:title)
   end
 end

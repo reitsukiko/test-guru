@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_many :сreated_tests, class_name: 'Test', foreign_key: :author_id
 
+  validates :email, :name, presence: true
+
   def find_tests_by_level(level)
     tests.where(level: level)
   end
