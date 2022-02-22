@@ -3,10 +3,19 @@
   <%= @test.title %>
 </p>
 
-<h2>Questions</h2>
-<%= render @test.questions %>
+<p>
+  <strong>Level:</strong>
+  <%= test_level(@test) %>
+</p>
 
-<h2>Add a question:</h2>
-<%= render 'questions/form' %>
+<table>
+  <tr>
+    <th>Body</th>
+    <th colspan="3">Actions</th>
+  </tr>
 
-<%= link_to 'Back', tests_path %>
+  <%= render @test.questions %>
+</table><br>
+
+<%= link_to 'Back', tests_path %> |
+<%= link_to 'Create new question', new_test_question_path(@test) %>

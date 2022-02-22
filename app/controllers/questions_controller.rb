@@ -44,4 +44,3 @@ class QuestionsController < ApplicationController
     render plain: 'Question is not found'
   end
 end
-end
