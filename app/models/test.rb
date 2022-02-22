@@ -5,9 +5,9 @@ class Test < ApplicationRecord
 
   has_many :question, dependent: :destroy
 
-  has_many :passings, dependent: :destroy
+  has_many :test_passages, dependent: :destroy
 
-  has_many :users, through: :passings
+  has_many :users, through: :test_passages
 
   validates :title, presence: true, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equel_to: 0 }
