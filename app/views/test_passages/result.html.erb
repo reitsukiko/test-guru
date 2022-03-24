@@ -1,0 +1,8 @@
+<h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<% if @test_passage.successfully? %>
+  <p >Your score <span class="color:green"><%= @test_passage.percentage_score %></span>%. Test passed!<span>&#x1F609</span> emoji symbol.</p>
+<% else %>
+  <p>Your score <span class="color:red"><%= @test_passage.percentage_score %></span>%. Try again...<span>🧑‍🔬</span> symbol.</p>
+<% end %>
+
+<%= link_to 'Back', tests_path %>
