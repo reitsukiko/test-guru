@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to destination _path
+      redirect_to destination_path
     else
       flesh.now[:alert] = 'Are you a Guru? Verify your Email and Password please'
       render :new
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def destination _path
+  def destination_path
     cookies.delete(:intended_url) || tests_path
   end
 
