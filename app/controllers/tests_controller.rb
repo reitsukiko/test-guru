@@ -18,8 +18,8 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params)
-    
+    @test = current_user.created_tests.build(test_params)
+
     if @test.save
       redirect_to @test
     else
@@ -41,8 +41,8 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
